@@ -1,0 +1,6 @@
+library(tencentAI)
+
+test_that("emotion runs good",	{
+  expect_equal(emotion("hello",app_id = "1107152791", app_key = "OpsMj8HXPmbu9SMd"),	0)
+})
+

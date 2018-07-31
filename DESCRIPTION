@@ -1,0 +1,19 @@
+Package: tencentAI
+Type: Package
+Title: a API to Tencent AI lab
+Version: 0.1.0
+Author@R: person("Ao", "Sun", "ao_sun_xmu@163.com", role = "aut")
+Description: This package is a useful API to Tencent AI lab.
+    You can easily perform some application on tap.
+Imports:
+    digest,
+    stringr,
+    jsonlite,
+    RCurl
+Suggests: 
+    testthat
+License: GPL (>=2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+

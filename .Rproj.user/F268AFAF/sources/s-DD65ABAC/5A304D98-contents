@@ -1,0 +1,43 @@
+library(digest)
+library(stringr)
+library(jsonlite)
+library(RCurl)
+
+
+app_key <- 'OpsMj8HXPmbu9SMd'
+app_id <- '1107152791'
+
+
+get_sign <- function(params, app_key){
+  params_run <- params[nchar(params) > 0]
+  params_run[order(names(params_run))] 
+  params_str <- paste0(names(params_run), '=', params_run, '&') %>% paste0(collapse = '')
+  #print(params_str)
+  str <- paste0(params_str, 'app_key=', app_key)
+  #print(str)
+  sign_str <- toupper(digest(str,algo="md5", serialize=FALSE))
+  return(sign_str)
+}
+
+emotion <- function(text, app_key, app_id){
+  # 生成时间戳
+  timestamp_num <- function() {ceiling(as.numeric(as.POSIXct(Sys.time(), format="%Y-%m-%d %H:%M:%S")))}
+  
+  # 生成随机字符串
+  nonce_run <- function() {paste0(sample(c(letters, ceiling(runif(10, 0, 9))), 10), collapse = '')}
+  params <- c(
+    'app_id' = app_id,
+    'nonce_str' = nonce_run(),
+    'sign' = '',
+    'text' = URLencode(enc2utf8(text)),
+    'time_stamp' = timestamp_num()
+  )
+  params['sign'] = get_sign(params, app_key)
+  url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textpolar'
+  webpage <- postForm(url, .params = params)
+  result <- fromJSON(webpage)
+  return(result)
+}
+
+emotion('hello', app_key = app_key, app_id = app_id)
+
