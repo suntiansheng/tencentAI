@@ -1,4 +1,4 @@
-#' A API to tencent AI lab's emotion analysis APP
+#' R interface to tencent AI lab's emotion analysis
 #'
 #' \code{emotion} returns the emotion analysis APP results
 #' @param text The text is sent to API

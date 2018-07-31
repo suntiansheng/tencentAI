@@ -2,7 +2,7 @@
 % Please edit documentation in R/chatting.R
 \name{chatting}
 \alias{chatting}
-\title{A API to tencent AI lab's chatting robots}
+\title{R interface to tencent AI lab's chatting robot}
 \usage{
 chatting(app_id = app_id, app_key = app_key, keywords)
 }
@@ -17,7 +17,7 @@ chatting(app_id = app_id, app_key = app_key, keywords)
 returns the reply of chatting robots
 }
 \description{
-\code{chatting} returns the reply of chatting robots
+\code{chatting} returns the reply of chatting robot
 }
 \author{
 Ao Sun <\url{https://ao-sun.github.io/}

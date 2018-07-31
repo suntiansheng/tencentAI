@@ -1,6 +1,6 @@
 Package: tencentAI
 Type: Package
-Title: a API to Tencent AI lab
+Title: R interface of Tencent AI lan
 Version: 0.1.0
 Author@R: person("Ao", "Sun", "ao_sun_xmu@163.com", role = "aut")
 Description: This package is a useful API to Tencent AI lab.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/emotion.R
 \name{emotion}
 \alias{emotion}
-\title{A API to tencent AI lab's emotion analysis APP}
+\title{R interface to tencent AI lab's emotion analysis}
 \usage{
 emotion(text, app_key, app_id)
 }

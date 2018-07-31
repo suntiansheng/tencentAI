@@ -12,9 +12,9 @@ params_trans <- function(params, app_key) {
   return(params_str)
 }
 
-#' A API to tencent AI lab's chatting robots
+#' R interface to tencent AI lab's chatting robot
 #'
-#' \code{chatting} returns the reply of chatting robots
+#' \code{chatting} returns the reply of chatting robot
 #' @param text The text is sent to API
 #' @param app_key Your app key
 #' @param app_id Your app ID
