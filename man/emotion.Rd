@@ -17,7 +17,13 @@ emotion(text, app_key, app_id)
 positive = 1, neuter = 0, nagetive = -1
 }
 \description{
-\code{emotion} returns the emotion analysis APP results
+text can only be Chinese, this function perform poorly in English
+}
+\details{
+\code{emotion} returns the results  of emotion analysis
+}
+\examples{
+ emotion('很开心', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
 }
 \author{
 Ao Sun <\url{https://ao-sun.github.io/}

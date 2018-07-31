@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533037885882.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "10508EBD",
+    "lastKnownWriteTime" : 1533041600,
+    "last_content_update" : 1533041600119,
+    "path" : "~/rwd/tencentAI/R/emotion.R",
+    "project_path" : "R/emotion.R",
+    "properties" : {
+        "cursorPosition" : "2,42",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

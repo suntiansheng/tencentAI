@@ -19,6 +19,9 @@ returns the reply of chatting robots
 \description{
 \code{chatting} returns the reply of chatting robot
 }
+\examples{
+ chatting('hello', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
+}
 \author{
 Ao Sun <\url{https://ao-sun.github.io/}
 }

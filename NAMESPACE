@@ -2,3 +2,4 @@
 
 export(chatting)
 export(emotion)
+export(translate)

@@ -12,29 +12,31 @@ params_trans <- function(params, app_key) {
   return(params_str)
 }
 
-#' R interface to tencent AI lab's chatting robot
+
+#' R interface to tencent AI text translation
 #'
-#' \code{chatting} returns the reply of chatting robot
+#'
+#' \code{translate} returns the result of transform
 #' @param text The text is sent to API
 #' @param app_key Your app key
 #' @param app_id Your app ID
-#' @return returns the reply of chatting robots
+#' @description  This function can only handle English and Chinese
 #' @author Ao Sun <\url{https://ao-sun.github.io/}
-#' @examples  chatting('hello', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
+#' @examples  translate('god', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
 #' @export
-chatting<- function(app_id = app_id, app_key = app_key, keywords) {
+translate <- function(app_id = app_id, app_key = app_key, keywords) {
   timestamp_num <- function() {ceiling(as.numeric(as.POSIXct(Sys.time(), format="%Y-%m-%d %H:%M:%S")))}
   nonce_run <- function() {paste0(sample(c(letters, ceiling(runif(10, 0, 9))), 10), collapse = '')}
   params <- c(
     'app_id' = app_id,
     'nonce_str' = nonce_run(),
     'sign' = '',
-    'session' = '10000',
-    'question' = URLencode(enc2utf8(keywords)),
+    'type' = 0,
+    'text' = URLencode(enc2utf8(keywords)),
     'time_stamp' = timestamp_num()
   )
   #print(params)
-  url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'
+  url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans'
   request_body <- params_trans(params = params, app_key = app_key)
   # print(request_body)
 
@@ -42,8 +44,7 @@ chatting<- function(app_id = app_id, app_key = app_key, keywords) {
     # httpheader = myheader,
     postfields = request_body
   )
-
   webpage <- RCurl::postForm(url, .opts = curl_opts)
   result <- jsonlite::fromJSON(webpage)
-  return(result$data$answer)
+  return(result$data$trans_text)
 }
