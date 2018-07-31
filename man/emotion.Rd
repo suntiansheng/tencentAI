@@ -20,5 +20,5 @@ positive = 1, neuter = 0, nagetive = -1
 \code{emotion} returns the emotion analysis APP results
 }
 \author{
-sunao
+Ao Sun <\url{https://ao-sun.github.io/}
 }

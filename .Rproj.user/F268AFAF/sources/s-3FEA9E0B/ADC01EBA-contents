@@ -5,7 +5,7 @@
 #' @param app_key Your app key
 #' @param app_id Your app ID
 #' @return positive = 1, neuter = 0, nagetive = -1
-#' @author sunao
+#' @author Ao Sun <\url{https://ao-sun.github.io/}
 #' @export
 emotion <- function(text, app_key, app_id){
   timestamp_num <- function() {ceiling(as.numeric(as.POSIXct(Sys.time(), format="%Y-%m-%d %H:%M:%S")))}
