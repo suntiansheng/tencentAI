@@ -24,19 +24,18 @@ params_trans <- function(params, app_key) {
 #' @author Ao Sun <\url{https://ao-sun.github.io/}
 #' @examples  translate('god', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
 #' @export
-translate <- function(app_id = app_id, app_key = app_key, keywords) {
+semantic_test <- function(app_id = app_id, app_key = app_key, text) {
   timestamp_num <- function() {ceiling(as.numeric(as.POSIXct(Sys.time(), format="%Y-%m-%d %H:%M:%S")))}
   nonce_run <- function() {paste0(sample(c(letters, ceiling(runif(10, 0, 9))), 10), collapse = '')}
   params <- c(
     'app_id' = app_id,
     'nonce_str' = nonce_run(),
     'sign' = '',
-    'type' = 0,
-    'text' = URLencode(enc2utf8(keywords)),
+    'text' = URLencode(enc2utf8(text)),
     'time_stamp' = timestamp_num()
   )
   #print(params)
-  url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans'
+  url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_wordcom'
   request_body <- params_trans(params = params, app_key = app_key)
   # print(request_body)
 
@@ -46,5 +45,5 @@ translate <- function(app_id = app_id, app_key = app_key, keywords) {
   )
   webpage <- RCurl::postForm(url, .opts = curl_opts)
   result <- jsonlite::fromJSON(webpage)
-  return(result$data$trans_text)
+  return(result)
 }

@@ -2,4 +2,5 @@
 
 export(chatting)
 export(emotion)
+export(semantic)
 export(translate)

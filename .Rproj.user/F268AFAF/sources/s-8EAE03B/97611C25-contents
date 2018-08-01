@@ -1,0 +1,32 @@
+#' R interface to tencent AI lab's semantic analysis
+#'
+#' \code{semantic} returns the result of semantic analysis
+#' @param text The text is sent to API
+#' @param app_key Your app key
+#' @param app_id Your app ID
+#' @return the meaning of return code shown in this page <\url{https://ai.qq.com/doc/nlpsem.shtml}>
+#' @author Ao Sun <\url{https://ao-sun.github.io/}>
+#' @description text can only be Chinese, this function performs poorly in English
+#' @examples  semantic('今天和明天的天气怎样', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
+#' @export
+semantic <- function(text, app_key, app_id){
+  timestamp_num <- function() {ceiling(as.numeric(as.POSIXct(Sys.time(), format="%Y-%m-%d %H:%M:%S")))}
+  nonce_run <- function() {paste0(sample(c(letters, ceiling(runif(10, 0, 9))), 10), collapse = '')}
+  params <- c(
+    'app_id' = app_id,
+    'nonce_str' = nonce_run(),
+    'sign' = '',
+    'text' = URLencode(enc2utf8(text)),
+    'time_stamp' = timestamp_num()
+  )
+  params['sign'] = get_sign(params, app_key)
+  params_str <- paste0(names(params), '=', params, '&',collapse = '')
+  request_body <- stringr::str_sub(params_str, 1, nchar(params_str) - 1)
+  url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_wordcom'
+  curl_opts <- list(
+    postfields = request_body
+  )
+  webpage <- RCurl::postForm(url, .opts = curl_opts)
+  result <- jsonlite::fromJSON(webpage)
+  return(list = c(com_tokens = result$data$com_tokens, intent = result$data$intent))
+}

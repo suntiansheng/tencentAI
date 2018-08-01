@@ -23,5 +23,5 @@ This function can only handle English and Chinese
  translate('god', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
 }
 \author{
-Ao Sun <\url{https://ao-sun.github.io/}
+Ao Sun <\url{https://ao-sun.github.io/}>
 }

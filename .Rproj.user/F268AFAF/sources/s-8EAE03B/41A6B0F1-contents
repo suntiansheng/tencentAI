@@ -1,0 +1,2 @@
+image <- jpeg::readJPEG('~/rwd/test.jpg')
+image_ba <- RCurl::base64Encode(image)

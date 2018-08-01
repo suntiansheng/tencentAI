@@ -23,5 +23,5 @@ returns the reply of chatting robots
  chatting('hello', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
 }
 \author{
-Ao Sun <\url{https://ao-sun.github.io/}
+Ao Sun <\url{https://ao-sun.github.io/}>
 }

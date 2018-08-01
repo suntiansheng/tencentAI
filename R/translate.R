@@ -21,7 +21,7 @@ params_trans <- function(params, app_key) {
 #' @param app_key Your app key
 #' @param app_id Your app ID
 #' @description  This function can only handle English and Chinese
-#' @author Ao Sun <\url{https://ao-sun.github.io/}
+#' @author Ao Sun <\url{https://ao-sun.github.io/}>
 #' @examples  translate('god', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
 #' @export
 translate <- function(app_id = app_id, app_key = app_key, keywords) {

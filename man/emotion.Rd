@@ -17,7 +17,7 @@ emotion(text, app_key, app_id)
 positive = 1, neuter = 0, nagetive = -1
 }
 \description{
-text can only be Chinese, this function perform poorly in English
+text can only be Chinese, this function performs poorly in English
 }
 \details{
 \code{emotion} returns the results  of emotion analysis
@@ -26,5 +26,5 @@ text can only be Chinese, this function perform poorly in English
  emotion('很开心', app_id = '1107152791', app_key =  'OpsMj8HXPmbu9SMd')
 }
 \author{
-Ao Sun <\url{https://ao-sun.github.io/}
+Ao Sun <\url{https://ao-sun.github.io/}>
 }
